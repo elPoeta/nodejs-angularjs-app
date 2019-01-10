@@ -4,7 +4,10 @@
   "description": "Nodejs Angularjs hapijs postgresql movies restfull api  ",
   "main": "server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/server.js",
+    "start-dev": "nodemon server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify ./public/app/js/index.js -o ./public/dist/index.js"
   },
   "repository": {
     "type": "git",
