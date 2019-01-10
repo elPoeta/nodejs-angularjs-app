@@ -1,0 +1,25 @@
+{
+  "name": "nodejs-angularjs-app",
+  "version": "1.0.0",
+  "description": "Nodejs Angularjs hapijs postgresql movies restfull api  ",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elPoeta/nodejs-angularjs-app.git"
+  },
+  "author": "Leonardo Tosetto (leonardo.a.tosetto@gmail.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elPoeta/nodejs-angularjs-app/issues"
+  },
+  "homepage": "https://github.com/elPoeta/nodejs-angularjs-app#readme",
+  "dependencies": {
+    "angular": "^1.7.5",
+    "hapi": "^17.8.1",
+    "inert": "^5.1.2",
+    "pg": "^7.7.1"
+  }
+}
