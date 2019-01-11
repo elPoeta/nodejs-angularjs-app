@@ -1,7 +1,7 @@
 const Hapi = require('hapi');
 
 
-class InitServer{
+class ConfigServer{
     constructor(args){
         this.server = Hapi.server(args);
     }
@@ -46,7 +46,7 @@ class InitServer{
     }); 
 }
 }
-module.exports = InitServer; 
+module.exports = ConfigServer; 
 
 /*
  handler: {

@@ -1,7 +1,7 @@
 const Path = require('path');
-const InitServer = require('./initServer');
+const ConfigServer = require('./configServer');
 
-const initServer = new InitServer({
+const Server = new ConfigServer({
         port: parseInt(process.env.PORT) || 3000,
         host: process.env.HOST || '0.0.0.0',
         routes: {
@@ -12,4 +12,4 @@ const initServer = new InitServer({
         app: {}
 });
 
-initServer.init();
+Server.init();
