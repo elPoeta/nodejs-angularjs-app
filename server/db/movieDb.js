@@ -6,9 +6,9 @@ class MovieDb{
         let client = await pool.connect(); 
      
         try{ 
-            const movie = await client.query('SELECT * FROM movies', []);
+            const movies = await client.query('SELECT movies.id, movies.title, movies.year, movies.description, movies.poster, movies.available, director.id as directorid, director.name as directorname, genre.id as genreid, genre.name as genrename  FROM movies INNER JOIN director ON director.id = movies.director_id INNER JOIN genre ON genre.id = movies.genre_id', []);
           
-            return movie.rows;
+            return movies.rows;
         }catch(error){
             return new Error('error');
         }
@@ -22,7 +22,7 @@ class MovieDb{
         let client = await pool.connect();
         try{
 
-         const  movie = await client.query('SELECT * FROM movies WHERE id = $1', [id]);
+         const  movie = await client.query('SELECT movies.id, movies.title, movies.year, movies.description, movies.poster, movies.available, director.id as directorid, director.name as directorname, genre.id as genreid, genre.name as genrename  FROM movies INNER JOIN director ON director.id = movies.director_id INNER JOIN genre ON genre.id = movies.genre_id WHERE movies.id = $1', [id]);
          
          return movie.rows[0];
         } 
