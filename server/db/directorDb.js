@@ -7,7 +7,7 @@ class DirectorDb{
      
         try{ 
             const director = await client.query('SELECT * FROM director', []);
-            console.log(director.rows);
+           
             return director.rows;
         }catch(error){
             return new Error('error');
@@ -23,7 +23,7 @@ class DirectorDb{
         try{
 
          const  director = await client.query('SELECT * FROM director WHERE id = $1', [id]);
-         console.log(director.rows);
+        
          return director.rows[0];
         } 
         catch(error){

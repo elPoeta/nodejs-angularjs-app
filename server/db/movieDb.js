@@ -7,7 +7,7 @@ class MovieDb{
      
         try{ 
             const movie = await client.query('SELECT * FROM movies', []);
-            console.log(movie.rows);
+          
             return movie.rows;
         }catch(error){
             return new Error('error');
@@ -22,8 +22,8 @@ class MovieDb{
         let client = await pool.connect();
         try{
 
-         const  movie = await client.query('SELECT title FROM movies WHERE id = $1', [id]);
-         console.log(movie.rows);
+         const  movie = await client.query('SELECT * FROM movies WHERE id = $1', [id]);
+         
          return movie.rows[0];
         } 
         catch(error){

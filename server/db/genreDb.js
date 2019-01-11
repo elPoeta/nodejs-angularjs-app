@@ -7,7 +7,7 @@ class GenreDb{
      
         try{ 
             const genre = await client.query('SELECT * FROM genre', []);
-            console.log(genre.rows);
+            
             return genre.rows;
         }catch(error){
             return new Error('error');
@@ -23,6 +23,7 @@ class GenreDb{
         try{
 
          const  genre = await client.query('SELECT * FROM genre WHERE id = $1', [id]);
+        
          return genre.rows[0];
         } 
         catch(error){
