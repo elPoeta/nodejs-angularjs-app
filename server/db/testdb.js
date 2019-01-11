@@ -1,4 +1,4 @@
 
-const genreDb = require('./genreDb');
+const testDb = require('./movieDb');
 
-module.exports = {findAllGenres: genreDb.findAllGenres()}
+module.exports = {find: testDb.findMovieById(1)}
