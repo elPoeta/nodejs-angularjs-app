@@ -1,14 +1,14 @@
 const pool = require('./connection');
 
-class GenreDb{
+class DirectorDb{
 
- static async findAllGenres(){
+ static async findAllDirectors(){
         let client = await pool.connect(); 
      
         try{ 
-            const genre = await client.query('SELECT * FROM genre', []);
-            console.log(genre.rows);
-            return genre.rows;
+            const director = await client.query('SELECT * FROM director', []);
+            
+            return director.rows;
         }catch(error){
             return new Error('error');
         }
@@ -18,12 +18,12 @@ class GenreDb{
         }
     }
    
-    static async findGenreById(id){
+    static async findDirectorById(id){
         let client = await pool.connect();
         try{
 
-         const  genre = await client.query('SELECT * FROM genre WHERE id = $1', [id]);
-         return genre.rows[0];
+         const  director = await client.query('SELECT * FROM director WHERE id = $1', [id]);
+         return director.rows[0];
         } 
         catch(error){
             return new Error('error');
@@ -34,13 +34,13 @@ class GenreDb{
         }
     }
     
-    static async insertGenre(newGenre){
+    static async insertDirector(newDirector){
         let client = await pool.connect();
         try{
         
-            const genre = await client.query('INSERT INTO genre (name, available) VALUES($1,$2) RETURNING *', [newGenre.name, newGenre.available]);
+            const director = await client.query('INSERT INTO director (name, photo) VALUES($1,$2) RETURNING *', [newDirector.name, newDirector.photo]);
          
-            return genre.rows[0];
+            return director.rows[0];
         
         } 
         catch(error){
@@ -51,14 +51,13 @@ class GenreDb{
           await client.release();
         }
          }
-
-         static async updateGenre(updGenre, id){
+         static async updateDirector(updDirector, id){
             let client = await pool.connect();
             try{
             
-                const genre = await client.query('UPDATE genre SET name=($1), available=($2) WHERE id=($3) RETURNING *', [updGenre.name, updGenre.available, id]);
+                const director = await client.query('UPDATE director SET name=($1), photo=($2) WHERE id=($3) RETURNING *', [updDirector.name, updDirector.photo, id]);
              
-                return genre.rows[0];
+                return director.rows[0];
             
             } 
             catch(error){
@@ -68,7 +67,7 @@ class GenreDb{
               
               await client.release();
             }
-             }
+             }     
 }    
 
-module.exports = GenreDb;
+module.exports = DirectorDb;
