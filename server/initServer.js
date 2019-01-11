@@ -15,6 +15,7 @@ class InitServer{
               
             ]);
             await this.routing();
+            await require('./db/testdb').findAllGenres;
             await this.server.start();
             console.log(`Server Hapi running on: ${this.server.info.uri}`);
         }catch (err){
