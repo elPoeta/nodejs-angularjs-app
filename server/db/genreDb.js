@@ -7,7 +7,6 @@ class GenreDb{
      
         try{ 
             const genre = await client.query('SELECT * FROM genre', []);
-            
             return genre.rows;
         }catch(error){
             return new Error('error');

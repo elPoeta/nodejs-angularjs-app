@@ -1,5 +1,5 @@
 const genreDb = require('../db/genreDb');
-
+const Joi = require('joi'); 
 module.exports = {
     name: "GenreApiPlugin",
     register: async (server, options) => {
@@ -15,7 +15,7 @@ module.exports = {
             {
                 return genres;
             }
-            return [{}];
+            return [];
           }
         },
         {
@@ -33,7 +33,25 @@ module.exports = {
             }
             return h.response('Bad Request').code(400);
           }
+        },
+        {
+          method: "POST",
+          path: "/api/genre/insert",
+          config: {
+            handler: async (request, h) => {
+              console.log(request.payload);
+                return h.response('Created').code(201);
+              },
+            validate: {
+              payload: {
+                name: Joi.string().required(),
+                available: Joi.boolean().required()
+              }
+            }
+          }
+        
         }
+        
      ]);
     }
 }

@@ -1,5 +1,5 @@
 const directorDb = require('../db/directorDb');
-
+const Joi = require('joi');
 module.exports = {
     name: "DirectorApiPlugin",
     register: async (server, options) => {
@@ -14,7 +14,7 @@ module.exports = {
             if(directors){
                 return directors;
             }
-            return [{}];
+            return [];
             
           }
         },
@@ -33,6 +33,23 @@ module.exports = {
             }
             return h.response('Bad Request').code(400);
           }
+        },
+        {
+          method: "POST",
+          path: "/api/director/insert",
+          config: {
+            handler: async (request, h) => {
+              console.log(request.payload);
+                return h.response('Created').code(201);
+              },
+            validate: {
+              payload: {
+                name: Joi.string().required(),
+                photo: Joi.string().required()
+              }
+            }
+          }
+        
         }
      ]);
     }

@@ -1,4 +1,5 @@
 const movieDb = require('../db/movieDb');
+const Joi = require('joi');
 
 module.exports = {
     name: "MovieApiPlugin",
@@ -14,7 +15,7 @@ module.exports = {
             if(movies){
                 return movies;
             }
-            return [{}];
+            return [];
           }
         },
         {
@@ -31,6 +32,28 @@ module.exports = {
             }
             return h.response('Bad Request').code(400);
           }
+        },
+        {
+          method: "POST",
+          path: "/api/movie/insert",
+          config: {
+            handler: async (request, h) => {
+              console.log(request.payload);
+                return h.response('Created').code(201);
+              },
+            validate: {
+              payload: {
+                title: Joi.string().required(),
+                year: Joi.string().min(4).max(4).required(),
+                poster: Joi.string().required(),
+                available: Joi.boolean().required(),
+                description: Joi.string().min(10),
+                genreId: Joi.number().integer().required(),
+                directorId: Joi.number().integer().required()
+              }
+            }
+          }
+        
         }
      ]);
     }
