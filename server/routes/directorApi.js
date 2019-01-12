@@ -70,9 +70,9 @@ module.exports = {
                 return h.response({msg:'Modified', director: updDirector}).code(200);    
               
                 }catch(error){
-                 console.log('post ::  ',error);
+                 console.log('put ::  ',error);
                }
-                return h.response('Not Created').code(400);
+                return h.response('Not Updated').code(400);
                 
               },
             validate: {
