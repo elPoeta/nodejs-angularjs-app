@@ -53,11 +53,11 @@ class GenreDb{
         }
          }
 
-         static async updateGenre(updGenre, id){
+         static async updateGenre(updGenre){
             let client = await pool.connect();
             try{
             
-                const genre = await client.query('UPDATE genre SET name=($1), available=($2) WHERE id=($3) RETURNING *', [updGenre.name, updGenre.available, id]);
+                const genre = await client.query('UPDATE genre SET name=($1), available=($2) WHERE id=($3) RETURNING *', [updGenre.name, updGenre.available, updGenre.id]);
              
                 return genre.rows[0];
             

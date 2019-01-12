@@ -57,7 +57,32 @@ module.exports = {
               }
             }
           }
-        
+        },
+        {
+          method: "PUT",
+          path: "/api/director/update",
+          config: {
+            handler: async (request, h) => {
+             console.log(request.payload);
+            try{
+                
+                const updDirector = await directorDb.updateDirector(request.payload); 
+                return h.response({msg:'Modified', director: updDirector}).code(200);    
+              
+                }catch(error){
+                 console.log('post ::  ',error);
+               }
+                return h.response('Not Created').code(400);
+                
+              },
+            validate: {
+              payload: {
+                id: Joi.number().integer().required(),
+                name: Joi.string().required(),
+                photo: Joi.string().required()
+              }
+            }
+          }
         }
      ]);
     }

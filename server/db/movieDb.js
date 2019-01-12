@@ -53,11 +53,11 @@ class MovieDb{
           await client.release();
         }
          }
-         static async updateMovie(updMovie, id){
+         static async updateMovie(updMovie){
             let client = await pool.connect();
             try{
             
-                const movie = await client.query('UPDATE movies SET title = ($1), year = ($2), poster = ($3), description = ($4), available = ($5), genre_id = ($6), director_id = ($7)  WHERE id = ($8) RETURNING *', [updMovie.title, updMovie.year, updMovie.poster, updMovie.description, updMovie.available, updMovie.genreId, updMovie.directorId, id]);
+                const movie = await client.query('UPDATE movies SET title = ($1), year = ($2), poster = ($3), description = ($4), available = ($5), genre_id = ($6), director_id = ($7)  WHERE id = ($8) RETURNING *', [updMovie.title, updMovie.year, updMovie.poster, updMovie.description, updMovie.available, updMovie.genreId, updMovie.directorId, updMovie.id]);
              
                 return movie.rows[0];
             

@@ -61,6 +61,37 @@ module.exports = {
             }
           }
         
+        },
+        {
+          method: "PUT",
+          path: "/api/movie/update",
+          config: {
+            handler: async (request, h) => {
+            //  console.log(request.payload);
+            try{
+                
+                const updMovie = await movieDb.updateMovie(request.payload); 
+                return h.response({msg:'Modified', movie: updMovie}).code(200);    
+              
+                }catch(error){
+                 console.log('post ::  ',error);
+               }
+                return h.response('Not Created').code(400);
+                
+              },
+            validate: {
+              payload: {
+                id: Joi.number().integer().required(),
+                title: Joi.string().required(),
+                year: Joi.string().min(4).max(4).required(),
+                poster: Joi.string().required(),
+                available: Joi.boolean().required(),
+                description: Joi.string().min(10),
+                genreId: Joi.number().integer().required(),
+                directorId: Joi.number().integer().required()
+              }
+            }
+          }
         }
      ]);
     }

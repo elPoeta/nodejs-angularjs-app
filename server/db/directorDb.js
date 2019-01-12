@@ -52,11 +52,11 @@ class DirectorDb{
           await client.release();
         }
          }
-         static async updateDirector(updDirector, id){
+         static async updateDirector(updDirector){
             let client = await pool.connect();
             try{
             
-                const director = await client.query('UPDATE director SET name=($1), photo=($2) WHERE id=($3) RETURNING *', [updDirector.name, updDirector.photo, id]);
+                const director = await client.query('UPDATE director SET name=($1), photo=($2) WHERE id=($3) RETURNING *', [updDirector.name, updDirector.photo, updDirector.id]);
              
                 return director.rows[0];
             

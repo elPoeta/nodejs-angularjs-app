@@ -58,8 +58,33 @@ module.exports = {
             }
           }
         
+        },
+        {
+          method: "PUT",
+          path: "/api/genre/update",
+          config: {
+            handler: async (request, h) => {
+             console.log(request.payload);   
+            try{
+                
+                const updGenre = await genreDb.updateGenre(request.payload); 
+                return h.response({msg:'Modified', genre: updGenre}).code(200);    
+              
+                }catch(error){
+                 console.log('put ::  ',error);
+               }
+                return h.response('Not Updated').code(400);
+                
+              },
+            validate: {
+              payload: {
+                id: Joi.number().integer().required(),
+                name: Joi.string().required(),
+                available: Joi.boolean().required()
+              }
+            }
+          }
         }
-        
      ]);
     }
 }
