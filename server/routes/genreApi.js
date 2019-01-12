@@ -39,8 +39,16 @@ module.exports = {
           path: "/api/genre/insert",
           config: {
             handler: async (request, h) => {
-              console.log(request.payload);
-                return h.response('Created').code(201);
+            //  console.log(request.payload);
+               try{
+                
+                const newGenre = await genreDb.insertGenre(request.payload); 
+                return h.response({msg:'Created', genre: newGenre}).code(201);    
+              
+                }catch(error){
+                 console.log('post ::  ',error);
+               }
+                return h.response('Not Created').code(400);
               },
             validate: {
               payload: {

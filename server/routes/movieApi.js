@@ -38,8 +38,15 @@ module.exports = {
           path: "/api/movie/insert",
           config: {
             handler: async (request, h) => {
-              console.log(request.payload);
-                return h.response('Created').code(201);
+              try{
+                
+                const newMovie = await movieDb.insertMovie(request.payload); 
+                return h.response({msg:'Created', movie: newMovie}).code(201);    
+               
+              }catch(error){
+                 console.log('post ::  ',error);
+               }
+                return h.response('Not Created').code(400);
               },
             validate: {
               payload: {

@@ -40,7 +40,15 @@ module.exports = {
           config: {
             handler: async (request, h) => {
               console.log(request.payload);
-                return h.response('Created').code(201);
+              try{
+                
+                const newDirector = await directorDb.insertDirector(request.payload); 
+                return h.response({msg:'Created', director: newDirector}).code(201);    
+
+               }catch(error){
+                 console.log('post ::  ',error);
+               }
+                return h.response('Not Created').code(400);
               },
             validate: {
               payload: {

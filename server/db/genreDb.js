@@ -39,11 +39,12 @@ class GenreDb{
         try{
         
             const genre = await client.query('INSERT INTO genre (name, available) VALUES($1,$2) RETURNING *', [newGenre.name, newGenre.available]);
-         
+    
             return genre.rows[0];
         
         } 
         catch(error){
+        
             return new Error('error');
         }
         finally{
