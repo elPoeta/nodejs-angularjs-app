@@ -1,0 +1,26 @@
+header{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 60px;
+    align-items: center;
+    background: #362E5B;
+}
+    header .navigation{
+    
+    
+}
+
+header .navigation ul li{
+    display: inline;
+    text-align: center;
+    padding: 5px;
+}
+
+header .navigation ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.3em;
+    font-weight: 500; 
+    
+    
+}
