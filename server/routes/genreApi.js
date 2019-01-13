@@ -13,9 +13,9 @@ module.exports = {
             const genres = await genreDb.findAllGenres();
             if(genres)
             {
-                return genres;
+                return {genres};
             }
-            return [];
+            return {genres:[]};
           }
         },
         {

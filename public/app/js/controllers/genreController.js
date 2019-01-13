@@ -1,6 +1,12 @@
 const app = require('../app');
 
-module.exports = app.controller('genreController', ['$scope',
-   function genreController($scope){
-     $scope.title = "This is a genre page by @elpoeta";
-}]);
+function genreController($scope, genres){
+  $scope.title = 'Genre Controller';
+  $scope.genres = genres;
+  console.log('controller :: ');
+}
+
+
+app.controller('genreController', ['$scope','genres',genreController]);
+
+module.exports = app; 

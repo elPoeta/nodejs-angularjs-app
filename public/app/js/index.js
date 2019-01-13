@@ -4,3 +4,5 @@ require('./app');
 require('./controllers/homeController');
 require('./controllers/genreController');
 require('./controllers/aboutController');
+
+require('./services/genreService');

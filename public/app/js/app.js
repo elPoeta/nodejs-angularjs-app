@@ -14,7 +14,12 @@ module.exports = require('angular')
                     })
                     .when('/movieteca/genre', {
                         templateUrl : 'app/views/genre.html',
-                        controller: 'genreController'
+                        controller: 'genreController',
+                        resolve: {
+                            genres: ['GenreService', function(GenreService) {
+                                 return GenreService.fetchAllGenres();
+                                            }]
+                                  }
                     })
                     .when('/movieteca/about', {
                         templateUrl : 'app/views/about.html',
