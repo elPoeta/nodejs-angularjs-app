@@ -1,5 +1,5 @@
 module.exports = require('angular')
-                .module('movieApp', [require('angular-route')])
+                .module('movieApp', [require('angular-route'),require('angular-animate')])
                 .config(['$routeProvider', '$locationProvider',function ($routeProvider, $locationProvider){
                     $locationProvider.html5Mode(true).hashPrefix('*');
                    /*  $locationProvider.html5Mode({
@@ -27,6 +27,15 @@ module.exports = require('angular')
                         resolve: {
                             directors: ['DirectorService', function(DirectorService) {
                                  return DirectorService.fetchAllDirectors();
+                                            }]
+                                  }
+                    })
+                    .when('/movieteca/movie', {
+                        templateUrl : 'app/views/movie.html',
+                        controller: 'movieController',
+                        resolve: {
+                            movies: ['MovieService', function(MovieService) {
+                                 return MovieService.fetchAllMovies();
                                             }]
                                   }
                     })

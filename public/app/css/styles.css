@@ -10,3 +10,12 @@ body{
     font-size: 1em;
     list-style: none;
 }
+
+main.ng-enter {
+    transition:0.5s linear all;
+    opacity:0;
+  }
+  
+main.ng-enter.ng-enter-active {
+    opacity:1;
+  }
