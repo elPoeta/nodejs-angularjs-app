@@ -27,9 +27,9 @@ module.exports = {
                  const genre = await genreDb.findGenreById(id);
                  console.log(genre);
                  if(genre){
-                     return genre;
+                     return {genre};
                  }
-                 return {};
+                 return {genre: {}};
             }
             return h.response('Bad Request').code(400);
           }

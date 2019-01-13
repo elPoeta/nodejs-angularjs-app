@@ -12,9 +12,9 @@ module.exports = {
 
             const directors = await directorDb.findAllDirectors();
             if(directors){
-                return directors;
+                return { directors };
             }
-            return [];
+            return { directors:[] };
             
           }
         },
@@ -27,9 +27,9 @@ module.exports = {
                  const director = await directorDb.findDirectorById(id);
                  
                  if(director){
-                     return director;
+                     return { director };
                  }
-                 return {};
+                 return { director: {} };
             }
             return h.response('Bad Request').code(400);
           }

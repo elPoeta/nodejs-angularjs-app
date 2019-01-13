@@ -13,9 +13,9 @@ module.exports = {
 
             const movies = await movieDb.findAllMovies();
             if(movies){
-                return movies;
+                return { movies };
             }
-            return [];
+            return { movies:[] };
           }
         },
         {
@@ -26,9 +26,9 @@ module.exports = {
             if(!isNaN(id)){
                  const movie = await movieDb.findMovieById(id);
                  if(movie){
-                     return movie;
+                     return { movie };
                  }
-                 return {};
+                 return { movie:{} };
             }
             return h.response('Bad Request').code(400);
           }
