@@ -21,6 +21,15 @@ module.exports = require('angular')
                                             }]
                                   }
                     })
+                    .when('/movieteca/director', {
+                        templateUrl : 'app/views/director.html',
+                        controller: 'directorController',
+                        resolve: {
+                            directors: ['DirectorService', function(DirectorService) {
+                                 return DirectorService.fetchAllDirectors();
+                                            }]
+                                  }
+                    })
                     .when('/movieteca/about', {
                         templateUrl : 'app/views/about.html',
                         controller: 'aboutController'
