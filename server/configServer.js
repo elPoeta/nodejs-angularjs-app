@@ -20,8 +20,10 @@ class ConfigServer{
               },
               {
                   plugin : require('./routes/movieApi')
+              },
+              {
+                  plugin : require('./routes/clientAngularRoutes')
               }
-              
             ]);
             await this.routing();
             await this.server.start();

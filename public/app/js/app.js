@@ -8,20 +8,20 @@ module.exports = require('angular')
                       });
                  */
                     $routeProvider
-                    .when('/home', {
+                    .when('/movieteca/home', {
                         templateUrl : 'app/views/home.html',
                         controller: 'homeController'
                     })
-                 /*   .when('/genre', {
+                    .when('/movieteca/genre', {
                         templateUrl : 'app/views/genre.html',
                         controller: 'genreController'
                     })
-                    .when('/about', {
+                    .when('/movieteca/about', {
                         templateUrl : 'app/views/about.html',
                         controller: 'aboutController'
-                    }) */
+                    }) 
                     .otherwise({
-                        redirectTo : '/home'
+                        redirectTo : '/movieteca/home'
                     });
                    
                 }]);

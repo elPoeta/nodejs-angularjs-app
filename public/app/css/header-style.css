@@ -4,10 +4,14 @@ header{
     grid-template-rows: 60px;
     align-items: center;
     background: #362E5B;
+    color: #fff;
 }
-    header .navigation{
-    
-    
+header h1{
+    margin-left: 10px;
+}
+header .navigation{
+        justify-self: end;
+        margin-right: 10px;
 }
 
 header .navigation ul li{
