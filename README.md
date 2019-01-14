@@ -1,5 +1,13 @@
 # nodejs-angularjs-app
-Restfull app nodejs hapijs back-end side and angularjs front-end side
+RESTful api nodejs hapijs back-end side and angularjs front-end side
+
+## Install packages
+
+$ npm install
+
+## Run app
+
+$ node server/server.js
 
 ## Import DB
 
