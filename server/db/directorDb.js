@@ -39,7 +39,7 @@ class DirectorDb{
         let client = await pool.connect();
         try{
         
-            const director = await client.query('INSERT INTO director (name, photo) VALUES($1,$2) RETURNING *', [newDirector.name, newDirector.photo]);
+            const director = await client.query('INSERT INTO director (name, photo, biography) VALUES($1,$2,$3) RETURNING *', [newDirector.name, newDirector.photo, newDirector.biography]);
          
             return director.rows[0];
         
@@ -56,7 +56,7 @@ class DirectorDb{
             let client = await pool.connect();
             try{
             
-                const director = await client.query('UPDATE director SET name=($1), photo=($2) WHERE id=($3) RETURNING *', [updDirector.name, updDirector.photo, updDirector.id]);
+                const director = await client.query('UPDATE director SET name=($1), photo=($2), biography=($3) WHERE id=($4) RETURNING *', [updDirector.name, updDirector.photo, updateDirector.biography, updDirector.id]);
              
                 return director.rows[0];
             

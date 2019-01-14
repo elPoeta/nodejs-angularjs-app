@@ -53,7 +53,8 @@ module.exports = {
             validate: {
               payload: {
                 name: Joi.string().required(),
-                photo: Joi.string().required()
+                photo: Joi.string().required(),
+                biography: Joi.string().min(20).required()
               }
             }
           }
@@ -79,7 +80,8 @@ module.exports = {
               payload: {
                 id: Joi.number().integer().required(),
                 name: Joi.string().required(),
-                photo: Joi.string().required()
+                photo: Joi.string().required(),
+                biography: Joi.string().min(20).required()
               }
             }
           }
