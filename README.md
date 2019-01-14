@@ -7,7 +7,7 @@ $ npm install
 
 ## Run app
 
-$ node server/server.js
+$ npm start
 
 ## Import DB
 
