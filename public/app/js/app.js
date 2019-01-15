@@ -14,7 +14,7 @@ module.exports = require('angular')
                     })
                     .when('/movieteca/genre', {
                         templateUrl : 'app/views/genres.html',
-                        controller: 'genreController'
+                        controller: 'genresController'
                      /*   resolve: {
                             genres: ['GenreService', function(GenreService) {
                                  return GenreService.fetchAllGenres();
@@ -24,20 +24,19 @@ module.exports = require('angular')
                     .when('/movieteca/genre/:id', {
                         templateUrl : 'app/views/genre.html',
                         controller: 'genreController'
-                     /*   resolve: {
-                            genres: ['GenreService', function(GenreService) {
-                                 return GenreService.fetchAllGenres();
-                                            }]
-                                  }*/
                     })
                     .when('/movieteca/director', {
                         templateUrl : 'app/views/directors.html',
-                        controller: 'directorController'
+                        controller: 'directorsController'
                        /* resolve: {
                             directors: ['DirectorService', function(DirectorService) {
                                  return DirectorService.fetchAllDirectors();
                                             }]
                                   } */
+                    })
+                    .when('/movieteca/director/:id', {
+                        templateUrl : 'app/views/director.html',
+                        controller: 'directorController'
                     })
                     .when('/movieteca/movie', {
                         templateUrl : 'app/views/movies.html',

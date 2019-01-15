@@ -9,7 +9,7 @@ function GenreFactory($http){
     };
 
     genreFactory.getGenre = function (id) {
-        return $http.get(urlBase + '/' + id);
+        return $http.get(`${urlBase}/${id}`);
     };
 
     return genreFactory;

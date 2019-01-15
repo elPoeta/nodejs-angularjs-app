@@ -1,10 +1,10 @@
 const app = require('../app');
 
-function directorController($scope, DirectorFactory){
+function directorsController($scope, DirectorFactory){
   $scope.title = 'Director Controller';
 
   $scope.directors = getDirectors();
-
+  
   function getDirectors() {
     let dataDirectors = { 
       getDirectors: undefined,
@@ -21,8 +21,28 @@ function directorController($scope, DirectorFactory){
 
 }
 
+function directorController($scope, $routeParams, DirectorFactory){
+  $scope.director = getDirector($routeParams.id);
 
-app.controller('directorController', ['$scope','DirectorFactory',directorController]);
+  function getDirector(id) {
+    let dataDirector = { 
+      getDirector: undefined,
+      status: undefined
+    }
+    DirectorFactory.getDirector(id)
+        .then(function (response) {
+          return  dataDirector.getDirector = response.data.director;
+        }, function (error) {
+            return dataDirector.status = 'Unable to load Director data: ' + error.message;
+        });
+    return dataDirector;    
+  }
+  
+
+}
+
+app.controller('directorsController', ['$scope', 'DirectorFactory',directorsController]);
+app.controller('directorController', ['$scope', '$routeParams','DirectorFactory',directorController]);
 
 module.exports = app; 
 

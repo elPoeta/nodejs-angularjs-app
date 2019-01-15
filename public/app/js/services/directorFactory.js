@@ -8,6 +8,10 @@ function DirectorFactory($http){
         return $http.get(urlBase);
     };
 
+    directorFactory.getDirector = function (id) {
+        return $http.get(`${urlBase}/${id}`);
+    };
+
     return directorFactory;
 }
 

@@ -2,7 +2,7 @@
 
 <ul>
     <li data-ng-repeat="director in directors.getDirectors">
-        <p>{{director.name}}</p>
+        <p><a href="/movieteca/director/{{director.id}}">{{director.name}}</a></p>
         <img data-ng-src="{{director.photo}}">
         <textarea name="" id="" cols="60" rows="10">
             {{director.biography}}

@@ -1,44 +1,49 @@
 const app = require('../app');
 
- function genreController($scope, $routeParams, GenreFactory){
+function genresController($scope, GenreFactory) {
   $scope.title = 'Genre Controller';
 
   $scope.genres = getGenres();
-  $scope.genre = getGenre($routeParams.id);
+
 
   function getGenres() {
-    let dataGenres = { 
+    let dataGenres = {
       getGenres: undefined,
       status: undefined
     }
-  
-    GenreFactory.getGenres()
-        .then(function (response) {
-          return  dataGenres.getGenres = response.data.genres;
-        }, function (error) {
-            return dataGenres.status = 'Unable to load Genres data: ' + error.message;
-        });
-    return dataGenres;    
-}
 
-function getGenre(id) {
-  let dataGenre = { 
-    getGenre: undefined,
-    status: undefined
+    GenreFactory.getGenres()
+      .then(function (response) {
+        return dataGenres.getGenres = response.data.genres;
+      }, function (error) {
+        return dataGenres.status = 'Unable to load Genres data: ' + error.message;
+      });
+    return dataGenres;
   }
 
-  GenreFactory.getGenre(id)
+}
+
+function genreController($scope, $routeParams, GenreFactory) {
+  $scope.genre = getGenre($routeParams.id);
+
+  function getGenre(id) {
+    let dataGenre = {
+      getGenre: undefined,
+      status: undefined
+    }
+
+    GenreFactory.getGenre(id)
       .then(function (response) {
-        return  dataGenre.getGenre = response.data.genre;
+        return dataGenre.getGenre = response.data.genre;
       }, function (error) {
-          return dataGenre.status = 'Unable to load Genres data: ' + error.message;
+        return dataGenre.status = 'Unable to load Genres data: ' + error.message;
       });
-  return dataGenre;    
-}
+    return dataGenre;
+  }
 
 }
 
-
-app.controller('genreController', ['$scope','$routeParams','GenreFactory',genreController]);
+app.controller('genresController', ['$scope', 'GenreFactory', genresController]);
+app.controller('genreController', ['$scope', '$routeParams', 'GenreFactory', genreController]);
 
 module.exports = app; 
