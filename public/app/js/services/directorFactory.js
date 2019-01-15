@@ -1,5 +1,22 @@
 const app = require('../app');
 
+function DirectorFactory($http){
+    const urlBase = 'api/director';
+    directorFactory = {};
+
+    directorFactory.getDirectors = function () {
+        return $http.get(urlBase);
+    };
+
+    return directorFactory;
+}
+
+app.factory('DirectorFactory', ['$http', DirectorFactory]);
+
+module.exports = app; 
+
+
+/*
 function DirectorService($resource){
     return $resource('api/director');
 }
@@ -8,7 +25,7 @@ app.factory('DirectorService', ['$resource', DirectorService]);
 
 module.exports = app; 
 
-/*
+
 function DirectorService($http, $q){
     return {
          

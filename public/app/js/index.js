@@ -7,6 +7,6 @@ require('./controllers/aboutController');
 require('./controllers/directorController');
 require('./controllers/movieController');
 
-require('./services/genreService');
-require('./services/directorService');
-require('./services/movieService');
+require('./services/genreFactory');
+require('./services/directorFactory');
+require('./services/movieFactory');

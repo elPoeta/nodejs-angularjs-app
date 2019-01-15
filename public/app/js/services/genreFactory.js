@@ -1,4 +1,19 @@
 const app = require('../app');
+
+function GenreFactory($http){
+    const urlBase = 'api/genre';
+    genreFactory = {};
+
+    genreFactory.getGenres = function () {
+        return $http.get(urlBase);
+    };
+
+    return genreFactory;
+}
+
+app.factory('GenreFactory', ['$http', GenreFactory]);
+
+module.exports = app; 
 /*
 function GenreService($http, $q){
     return {
@@ -21,11 +36,12 @@ function GenreService($http, $q){
 
 app.factory('GenreService', ['$http', '$q',GenreService]);
 
-*/
+=========================================================
+
 function GenreService($resource){
     return $resource('api/genre');
    
 }
 app.factory('GenreService', ['$resource',GenreService]);
+*/
 
-module.exports = app; 

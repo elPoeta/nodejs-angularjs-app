@@ -1,7 +1,7 @@
 <h2>{{title}}</h2>
 
 <ul>
-    <li data-ng-repeat="director in directors">
+    <li data-ng-repeat="director in directors.getDirectors">
         <p>{{director.name}}</p>
         <img data-ng-src="{{director.photo}}">
         <textarea name="" id="" cols="60" rows="10">

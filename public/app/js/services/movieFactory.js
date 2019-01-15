@@ -1,12 +1,28 @@
 const app = require('../app');
 
+function MovieFactory($http){
+    const urlBase = 'api/movie';
+    movieFactory = {};
+
+    movieFactory.getMovies = function () {
+        return $http.get(urlBase);
+    };
+
+    return movieFactory;
+}
+
+app.factory('MovieFactory', ['$http', MovieFactory]);
+
+module.exports = app;
+
+
+/*
 function MovieService($resource){
     return  $resource('api/movie');
 }
 app.factory('MovieService', ['$resource', MovieService]);
 module.exports = app;
 
-/*
 function MovieService($http, $q){
     return {
          

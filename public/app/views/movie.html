@@ -1,6 +1,6 @@
 <h2>{{title}}</h2>
-<ul>
-    <li data-ng-repeat="movie in movies">
+<ul class="movie-fade">
+    <li data-ng-repeat="movie in movies.getMovies">
         <h3>{{movie.title}}</h3>
         <img data-ng-src="{{movie.poster}}" alt="not image">
         <p>{{movie.year}}</p>
