@@ -1,0 +1,11 @@
+<h2>Edit {{genre.getGenre.name}} :: Av: {{genre.getGenre.available}}</h2>
+
+<form action="" data-ng-model="genre.getGenre">
+</form>
+    Name: <input type="text" data-ng-model="genre.getGenre.name">
+    Available: <select data-ng-model="genre.getGenre.available">
+        <option value="true" selected>Available</option>
+        <option value="false">Not Available</option> 
+      </select> 
+    <input type="submit" value="Update">
+</form>

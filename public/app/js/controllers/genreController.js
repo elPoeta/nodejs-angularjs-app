@@ -43,7 +43,9 @@ function genreController($scope, $routeParams, GenreFactory) {
 
 }
 
+
 app.controller('genresController', ['$scope', 'GenreFactory', genresController]);
 app.controller('genreController', ['$scope', '$routeParams', 'GenreFactory', genreController]);
+//app.controller('genreEditController', ['$scope', 'GenreFactory', genreEditController]);
 
 module.exports = app; 

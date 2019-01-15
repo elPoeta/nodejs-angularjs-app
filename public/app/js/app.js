@@ -25,6 +25,10 @@ module.exports = require('angular')
                         templateUrl : 'app/views/genre.html',
                         controller: 'genreController'
                     })
+                    .when('/movieteca/genre/:id/edit', {
+                        templateUrl : 'app/views/genreEdit.html',
+                        controller: 'genreController'
+                    })
                     .when('/movieteca/director', {
                         templateUrl : 'app/views/directors.html',
                         controller: 'directorsController'
