@@ -40,12 +40,16 @@ module.exports = require('angular')
                     })
                     .when('/movieteca/movie', {
                         templateUrl : 'app/views/movies.html',
-                        controller: 'movieController',
+                        controller: 'moviesController',
                     /*    resolve: {
                             movies: ['MovieService', function(MovieService) {
                                  return MovieService.fetchAllMovies();
                                             }]
                                   } */
+                    })
+                    .when('/movieteca/movie/:id', {
+                        templateUrl : 'app/views/movie.html',
+                        controller: 'movieController',
                     })
                     .when('/movieteca/about', {
                         templateUrl : 'app/views/about.html',

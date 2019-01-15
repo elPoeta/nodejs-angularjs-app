@@ -1,6 +1,6 @@
 const app = require('../app');
 
-function movieController($scope, MovieFactory){
+function moviesController($scope, MovieFactory){
   $scope.title = 'Movie Controller';
 
   $scope.movies = getMovies();
@@ -22,7 +22,27 @@ function movieController($scope, MovieFactory){
 }
 
 
-app.controller('movieController', ['$scope','MovieFactory', movieController]);
+function movieController($scope, $routeParams, MovieFactory){
+  $scope.movie = getMovie($routeParams.id);
+
+  function getMovie(id) {
+    let dataMovie = { 
+      getMovie: undefined,
+      status: undefined
+    }
+    MovieFactory.getMovie(id)
+        .then(function (response) {
+          return  dataMovie.getMovie = response.data.movie;
+        }, function (error) {
+            return dataMovie.status = 'Unable to load Movie data: ' + error.message;
+        });
+    return dataMovie;    
+}
+
+}
+
+app.controller('movieController', ['$scope','$routeParams', 'MovieFactory', movieController]);
+app.controller('moviesController', ['$scope','MovieFactory', moviesController]);
 
 module.exports = app; 
 

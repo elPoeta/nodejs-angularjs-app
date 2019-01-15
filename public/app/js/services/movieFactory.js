@@ -8,6 +8,11 @@ function MovieFactory($http){
         return $http.get(urlBase);
     };
 
+    movieFactory.getMovie = function (id) {
+        return $http.get(`${urlBase}/${id}`);
+    };
+
+
     return movieFactory;
 }
 
