@@ -13,6 +13,15 @@ module.exports = require('angular')
                         controller: 'homeController'
                     })
                     .when('/movieteca/genre', {
+                        templateUrl : 'app/views/genres.html',
+                        controller: 'genreController'
+                     /*   resolve: {
+                            genres: ['GenreService', function(GenreService) {
+                                 return GenreService.fetchAllGenres();
+                                            }]
+                                  }*/
+                    })
+                    .when('/movieteca/genre/:id', {
                         templateUrl : 'app/views/genre.html',
                         controller: 'genreController'
                      /*   resolve: {
@@ -22,7 +31,7 @@ module.exports = require('angular')
                                   }*/
                     })
                     .when('/movieteca/director', {
-                        templateUrl : 'app/views/director.html',
+                        templateUrl : 'app/views/directors.html',
                         controller: 'directorController'
                        /* resolve: {
                             directors: ['DirectorService', function(DirectorService) {
@@ -31,7 +40,7 @@ module.exports = require('angular')
                                   } */
                     })
                     .when('/movieteca/movie', {
-                        templateUrl : 'app/views/movie.html',
+                        templateUrl : 'app/views/movies.html',
                         controller: 'movieController',
                     /*    resolve: {
                             movies: ['MovieService', function(MovieService) {

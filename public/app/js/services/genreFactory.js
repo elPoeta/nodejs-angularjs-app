@@ -8,6 +8,10 @@ function GenreFactory($http){
         return $http.get(urlBase);
     };
 
+    genreFactory.getGenre = function (id) {
+        return $http.get(urlBase + '/' + id);
+    };
+
     return genreFactory;
 }
 
