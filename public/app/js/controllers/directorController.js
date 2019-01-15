@@ -1,12 +1,12 @@
 const app = require('../app');
 
-function directorController($scope, directors){
+function directorController($scope, DirectorService){
   $scope.title = 'Director Controller';
-  $scope.directors = directors
+  $scope.directors = DirectorService.query();
  
 }
 
 
-app.controller('directorController', ['$scope','directors', directorController]);
+app.controller('directorController', ['$scope','DirectorService', directorController]);
 
 module.exports = app; 

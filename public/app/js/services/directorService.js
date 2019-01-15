@@ -1,5 +1,14 @@
 const app = require('../app');
 
+function DirectorService($resource){
+    return $resource('api/director');
+}
+
+app.factory('DirectorService', ['$resource', DirectorService]);
+
+module.exports = app; 
+
+/*
 function DirectorService($http, $q){
     return {
          
@@ -19,5 +28,5 @@ function DirectorService($http, $q){
 
 }
 app.factory('DirectorService', ['$http', '$q', DirectorService]);
+*/
 
-module.exports = app; 

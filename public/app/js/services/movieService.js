@@ -1,5 +1,12 @@
 const app = require('../app');
 
+function MovieService($resource){
+    return  $resource('api/movie');
+}
+app.factory('MovieService', ['$resource', MovieService]);
+module.exports = app;
+
+/*
 function MovieService($http, $q){
     return {
          
@@ -19,5 +26,4 @@ function MovieService($http, $q){
 
 }
 app.factory('MovieService', ['$http', '$q', MovieService]);
-
-module.exports = app; 
+*/ 

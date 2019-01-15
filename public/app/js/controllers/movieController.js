@@ -1,12 +1,12 @@
 const app = require('../app');
 
-function movieController($scope, movies){
+function movieController($scope, MovieService){
   $scope.title = 'Movie Controller';
-  $scope.movies = movies;
+  $scope.movies = MovieService.query();;
  
 }
 
 
-app.controller('movieController', ['$scope','movies', movieController]);
+app.controller('movieController', ['$scope','MovieService', movieController]);
 
 module.exports = app; 

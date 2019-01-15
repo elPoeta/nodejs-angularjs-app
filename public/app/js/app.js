@@ -1,5 +1,5 @@
 module.exports = require('angular')
-                .module('movieApp', [require('angular-route'),require('angular-animate')])
+                .module('movieApp', [require('angular-route'),require('angular-resource'),require('angular-animate')])
                 .config(['$routeProvider', '$locationProvider',function ($routeProvider, $locationProvider){
                     $locationProvider.html5Mode(true).hashPrefix('*');
                    /*  $locationProvider.html5Mode({
@@ -14,30 +14,30 @@ module.exports = require('angular')
                     })
                     .when('/movieteca/genre', {
                         templateUrl : 'app/views/genre.html',
-                        controller: 'genreController',
-                        resolve: {
+                        controller: 'genreController'
+                     /*   resolve: {
                             genres: ['GenreService', function(GenreService) {
                                  return GenreService.fetchAllGenres();
                                             }]
-                                  }
+                                  }*/
                     })
                     .when('/movieteca/director', {
                         templateUrl : 'app/views/director.html',
-                        controller: 'directorController',
-                        resolve: {
+                        controller: 'directorController'
+                       /* resolve: {
                             directors: ['DirectorService', function(DirectorService) {
                                  return DirectorService.fetchAllDirectors();
                                             }]
-                                  }
+                                  } */
                     })
                     .when('/movieteca/movie', {
                         templateUrl : 'app/views/movie.html',
                         controller: 'movieController',
-                        resolve: {
+                    /*    resolve: {
                             movies: ['MovieService', function(MovieService) {
                                  return MovieService.fetchAllMovies();
                                             }]
-                                  }
+                                  } */
                     })
                     .when('/movieteca/about', {
                         templateUrl : 'app/views/about.html',

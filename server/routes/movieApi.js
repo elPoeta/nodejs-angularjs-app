@@ -13,9 +13,9 @@ module.exports = {
 
             const movies = await movieDb.findAllMovies();
             if(movies){
-                return { movies };
+                return movies;
             }
-            return { movies:[] };
+            return [];
           }
         },
         {
