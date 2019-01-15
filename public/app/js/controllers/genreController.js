@@ -12,7 +12,7 @@ const app = require('../app');
     }
     GenreFactory.getGenres()
         .then(function (response) {
-          return  dataGenres.getGenres = response.data;
+          return  dataGenres.getGenres = response.data.genres;
         }, function (error) {
             return dataGenres.status = 'Unable to load Genres data: ' + error.message;
         });

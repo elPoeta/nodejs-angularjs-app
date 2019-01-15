@@ -12,9 +12,9 @@ module.exports = {
 
             const directors = await directorDb.findAllDirectors();
             if(directors){
-                return directors;
+                return { directors };
             }
-            return [];
+            return { directors:[] };
             
           }
         },

@@ -12,7 +12,7 @@ function directorController($scope, DirectorFactory){
     }
     DirectorFactory.getDirectors()
         .then(function (response) {
-          return  dataDirectors.getDirectors = response.data;
+          return  dataDirectors.getDirectors = response.data.directors;
         }, function (error) {
             return dataDirectors.status = 'Unable to load Directors data: ' + error.message;
         });

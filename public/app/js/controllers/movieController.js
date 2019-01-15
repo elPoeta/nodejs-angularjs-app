@@ -12,7 +12,7 @@ function movieController($scope, MovieFactory){
     }
     MovieFactory.getMovies()
         .then(function (response) {
-          return  dataMovies.getMovies = response.data;
+          return  dataMovies.getMovies = response.data.movies;
         }, function (error) {
             return dataMovies.status = 'Unable to load Movies data: ' + error.message;
         });
