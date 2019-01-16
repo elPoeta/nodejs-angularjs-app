@@ -10,3 +10,5 @@ require('./controllers/movieController');
 require('./services/genreFactory');
 require('./services/directorFactory');
 require('./services/movieFactory');
+
+require('./directives/backImg');
