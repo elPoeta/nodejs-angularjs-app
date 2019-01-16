@@ -1,11 +1,13 @@
-<h2>Edit {{genre.getGenre.name}} :: Av: {{genre.getGenre.available}}</h2>
+<h2>Edit {{genre.name}} :: Av: {{genre.available}}</h2>
 
-<form action="" data-ng-model="genre.getGenre">
-</form>
-    Name: <input type="text" data-ng-model="genre.getGenre.name">
-    Available: <select data-ng-model="genre.getGenre.available">
-        <option value="true" selected>Available</option>
-        <option value="false">Not Available</option> 
-      </select> 
+<form data-ng-submit="validateGenreEdit();" data-ng-model="genre">
+    Name: <input type="text" data-ng-model="genre.name">
+    Available: <input type="checkbox" data-ng-model="genre.available"> 
     <input type="submit" value="Update">
 </form>
+
+{{gen}}
+<!--<select data-ng-model="genre.getGenre.available">
+        <option value="true" selected>Available</option>
+        <option value="false">Not Available</option> 
+      </select> -->

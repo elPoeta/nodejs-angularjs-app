@@ -1,12 +1,75 @@
 module.exports = require('angular')
-                .module('movieApp', [require('angular-route'),require('angular-resource'),require('angular-animate')])
+                .module('movieApp', ['ui.router',require('angular-resource'),require('angular-animate')])
+                .config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
+                       function($stateProvider, $urlRouterProvider, $locationProvider){
+                              $locationProvider.html5Mode(true);   
+                             $stateProvider
+                                    .state('main',
+                                            {
+                                                url: '/',
+                                                templateUrl: './app/views/home.html'
+
+                                            })
+                                            .state('home',
+                                             {
+                                                url: '/movieteca/home',
+                                                templateUrl: './app/views/home.html'
+
+                                            })
+                                            .state('genres',
+                                             {
+                                                url: '/movieteca/genres',
+                                                templateUrl: './app/views/genres.html',
+                                                controller: 'genresController',
+                                                resolve : {
+                                                    genres: ['GenreFactory', function(GenreFactory) {
+                                                         return GenreFactory.fetchAllGenres();
+                                                                    }]
+                                                    }      
+                                            })
+                                            .state('genres.edit',
+                                            {
+                                                views: {
+                                                    content: {
+                                                        url: '/edit',
+                                                        templateUrl: './app/views/genres-edit.html',
+                                                      //  controller: 'genreEditController'
+                                                    }
+                                                }
+                                            })
+                                            .state('directors',
+                                            {
+                                               url: '/movieteca/directors',
+                                               templateUrl: './app/views/directors.html'
+
+                                           })
+                                           .state('movies',
+                                           {
+                                              url: '/movieteca/movies',
+                                              templateUrl: './app/views/movies.html'
+
+                                          })
+                                            .state('about',
+                                             {
+                                                url: '/movieteca/about',
+                                                templateUrl: './app/views/about.html'
+
+                                            });
+
+                                             $urlRouterProvider.otherwise('/');
+                                          }]);
+               
+               
+               
+               
+               /*
                 .config(['$routeProvider', '$locationProvider',function ($routeProvider, $locationProvider){
                     $locationProvider.html5Mode(true).hashPrefix('*');
-                   /*  $locationProvider.html5Mode({
+                     $locationProvider.html5Mode({
                         enabled: true,
                         requireBase: false
                       });
-                 */
+                 
                     $routeProvider
                     .when('/movieteca/home', {
                         templateUrl : 'app/views/home.html',
@@ -15,11 +78,11 @@ module.exports = require('angular')
                     .when('/movieteca/genre', {
                         templateUrl : 'app/views/genres.html',
                         controller: 'genresController'
-                     /*   resolve: {
+                        resolve: {
                             genres: ['GenreService', function(GenreService) {
                                  return GenreService.fetchAllGenres();
                                             }]
-                                  }*/
+                                  }
                     })
                     .when('/movieteca/genre/:id', {
                         templateUrl : 'app/views/genre.html',
@@ -32,11 +95,11 @@ module.exports = require('angular')
                     .when('/movieteca/director', {
                         templateUrl : 'app/views/directors.html',
                         controller: 'directorsController'
-                       /* resolve: {
+                        resolve: {
                             directors: ['DirectorService', function(DirectorService) {
                                  return DirectorService.fetchAllDirectors();
                                             }]
-                                  } */
+                                  } 
                     })
                     .when('/movieteca/director/:id', {
                         templateUrl : 'app/views/director.html',
@@ -45,11 +108,11 @@ module.exports = require('angular')
                     .when('/movieteca/movie', {
                         templateUrl : 'app/views/movies.html',
                         controller: 'moviesController',
-                    /*    resolve: {
+                       resolve: {
                             movies: ['MovieService', function(MovieService) {
                                  return MovieService.fetchAllMovies();
                                             }]
-                                  } */
+                                  } 
                     })
                     .when('/movieteca/movie/:id', {
                         templateUrl : 'app/views/movie.html',
@@ -64,3 +127,5 @@ module.exports = require('angular')
                     });
                    
                 }]);
+
+                */

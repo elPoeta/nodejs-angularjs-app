@@ -1,9 +1,47 @@
 const app = require('../app');
 
+function genresController($scope,genres){
+  $scope.title = 'Genres Controller';
+  $scope.genres = genres;
+}
+
+/*
+genresController.resolve = {
+  genres: function (GenreFactory) {
+    return GenreFactory.fetchAllGenres();
+  }
+}
+
+genresController.resolve = {
+  genres: function (GenreFactory) {
+    return GenreFactory.fetchAllGenres();
+  }
+}
+*/
+app.controller('genresController',['$scope','genres', genresController]);
+
+module.exports = app;
+
+/*
 function genresController($scope, GenreFactory) {
   $scope.title = 'Genre Controller';
+  /*
+  let genres = {
+    getGenres: undefined,
+    status: undefined
+  }
 
-  $scope.genres = getGenres();
+  function success(response){
+    return genres.getGenres = response.data.genres;
+  }
+  function error(error){
+    return genres.status = 'Unable to load Genres data: ' + error.message;
+  }
+
+  GenreFactory.getGenres()
+      .then(success, error);
+console.logresponse.data.genres;('G :: ',genres.getGenres);
+  $scope.genres = genres.getGenres;
 
 
   function getGenres() {
@@ -20,12 +58,32 @@ function genresController($scope, GenreFactory) {
       });
     return dataGenres;
   }
-
+ 
+  let genres = {
+    getGenres: undefined,
+    status: undefined
+  }
+  GenreFactory.getGenres()
+      .then(response =>{
+        console.log('R :: ',response);
+         return response.data.genres;
+      })
+      .then(data =>{
+        console.log('D :: ',data);
+       return genres.getGenres = data;
+      })
+      .catch(error =>{
+        console.error('E :: ',error);
+       return $scope.error = error;
+      });
+console.warn(genres.getGenres);
+      $scope.genres = genres.getGenres;
 }
 
 function genreController($scope, $routeParams, GenreFactory) {
-  $scope.genre = getGenre($routeParams.id);
-
+  const genre = getGenre($routeParams.id);
+  $scope.genre = genre.getGenre; 
+  
   function getGenre(id) {
     let dataGenre = {
       getGenre: undefined,
@@ -40,7 +98,18 @@ function genreController($scope, $routeParams, GenreFactory) {
       });
     return dataGenre;
   }
+    $scope.validateGenreEdit = function (){
+      console.log('validate');
+        if($scope.genre.name.isEmpty() || $scope.genre.name == ' '){
+          $scope.error = 'Error';
+          return
+        }
 
+      $scope.gen = {
+        n : $scope.genre.name,
+        av : $scope.genre.available
+      }  
+   }
 }
 
 
@@ -49,3 +118,5 @@ app.controller('genreController', ['$scope', '$routeParams', 'GenreFactory', gen
 //app.controller('genreEditController', ['$scope', 'GenreFactory', genreEditController]);
 
 module.exports = app; 
+
+*/

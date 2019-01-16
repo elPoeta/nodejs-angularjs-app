@@ -1,6 +1,8 @@
 console.log('Setup Requires');
 
 require('./app');
+require('@uirouter/angularjs');
+
 require('./controllers/homeController');
 require('./controllers/genreController');
 require('./controllers/aboutController');
