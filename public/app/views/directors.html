@@ -1,13 +1,10 @@
 <h2>{{title}}</h2>
-
-<ul>
-    <li data-ng-repeat="director in directors">
-        <p><a data-ui-sref="oneDirector({id: director.id})">{{director.name}}</a></p>
-       <!-- <img data-ng-src="{{director.photo}}">  -->
-       <div class="photo-circle" data-back-img="{{director.photo}}"></div>
-        <textarea name="" id="" cols="60" rows="10">
-            {{director.biography}}
-        </textarea>
-
-    </li>
-</ul>
+<div class="director-container">
+    <ul>
+        <h3>Director</h3>
+        <li data-ng-repeat="director in directors">
+           <div data-ui-sref="oneDirector({id: director.id})"class="photo-circle" data-back-img="{{director.photo}}"></div>
+            <p><a data-ui-sref="oneDirector({id: director.id})">{{director.name}}</a></p>
+        </li>
+    </ul>
+</div>

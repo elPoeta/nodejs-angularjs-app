@@ -20,12 +20,3 @@ main.ng-enter.ng-enter-active{
     opacity:1;
   }
 
-.photo-circle{
-    border-radius: 50%;
-    width: 200px;
-    height: 200px;
-    display: inline-block;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}  
