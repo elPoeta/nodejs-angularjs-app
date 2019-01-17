@@ -5,6 +5,7 @@ function GenreFactory($http, $q){
     return {
          
         fetchAllGenres: function() {
+            if(document.querySelector(".spin"))
             document.querySelector(".spin").classList.add("spinner-2");
                 return $http.get(urlBase)
                         .then(
@@ -20,6 +21,7 @@ function GenreFactory($http, $q){
                         );
         },
         fetchOneGenre: function(id) {
+            if(document.querySelector(".spin"))
             document.querySelector(".spin").classList.add("spinner-2");
             return $http.get(`${urlBase}/${id}`)
                     .then(

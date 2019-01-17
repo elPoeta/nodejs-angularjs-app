@@ -5,6 +5,7 @@ function DirectorFactory($http, $q){
     return {
          
         fetchAllDirectors: function() {
+            if(document.querySelector(".spin"))
             document.querySelector(".spin").classList.add("spinner-2");
                 return $http.get(urlBase)
                         .then(
@@ -20,6 +21,7 @@ function DirectorFactory($http, $q){
                         );
         },
         fetchOneDirector: function(id) {
+            if(document.querySelector(".spin"))
             document.querySelector(".spin").classList.add("spinner-2");
             return $http.get(`${urlBase}/${id}`)
                     .then(

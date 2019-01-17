@@ -5,6 +5,7 @@ function MovieFactory($http, $q){
     return {
          
         fetchAllMovies: function() {
+            if(document.querySelector(".spin"))
             document.querySelector(".spin").classList.add("spinner-2");
                 return $http.get(urlBase)
                         .then(
@@ -20,6 +21,7 @@ function MovieFactory($http, $q){
                         );
         },
         fetchOneMovie: function(id) {
+            if(document.querySelector(".spin"))
             document.querySelector(".spin").classList.add("spinner-2");
             return $http.get(`${urlBase}/${id}`)
                     .then(
