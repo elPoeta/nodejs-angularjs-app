@@ -13,10 +13,21 @@ function directorRoute($stateProvider){
                         }]
         }      
 
+   })
+   .state('oneDirector',
+   {
+      url: '/movieteca/director/{id:int}',
+      templateUrl: './app/views/director.html',
+      controller: 'directorController',
+      resolve: {
+         director : ['$stateParams', 'DirectorFactory', function($stateParams, DirectorFactory){
+            return DirectorFactory.fetchOneDirector($stateParams.id);
+         }]
+      }
    });
 
 }
 
-app.config(['$stateProvider',directorRoute]);
+app.config(['$stateProvider', directorRoute]);
 
 module.exports = app;

@@ -5,12 +5,14 @@ function directorsController($scope, directors){
   $scope.directors = directors;
 }
 
+function directorController($scope,  director) {
+  $scope.title = 'Director param controller';
+  $scope.director = director;
+}
 
 app.controller('directorsController', ['$scope', 'directors',directorsController]);
+app.controller('directorController', ['$scope','director',directorController]);
 
 module.exports = app;
-
-
-//app.controller('directorController', ['$scope', '$routeParams','DirectorFactory',directorController]);
 
 

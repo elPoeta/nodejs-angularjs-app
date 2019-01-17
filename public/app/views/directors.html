@@ -2,7 +2,7 @@
 
 <ul>
     <li data-ng-repeat="director in directors">
-        <p><a href="/movieteca/director/{{director.id}}">{{director.name}}</a></p>
+        <p><a data-ui-sref="oneDirector({id: director.id})">{{director.name}}</a></p>
        <!-- <img data-ng-src="{{director.photo}}">  -->
        <div class="photo-circle" data-back-img="{{director.photo}}"></div>
         <textarea name="" id="" cols="60" rows="10">

@@ -23,9 +23,10 @@ module.exports = {
           path: "/api/director/{id}",
           handler: async (request, h) => {
             const id = request.params.id;
+         
             if(!isNaN(id)){
                  const director = await directorDb.findDirectorById(id);
-                 
+           
                  if(director){
                      return { director };
                  }
