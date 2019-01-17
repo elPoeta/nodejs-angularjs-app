@@ -13,6 +13,17 @@ function movieRoute($stateProvider){
                         }]
         }      
 
+   })
+   .state('oneMovie',
+   {
+      url: '/movieteca/movie/{id:int}',
+      templateUrl: './app/views/movie.html',
+      controller: 'movieController',
+      resolve: {
+         movie : ['$stateParams', 'MovieFactory', function($stateParams, MovieFactory){
+            return MovieFactory.fetchOneMovie($stateParams.id);
+         }]
+      }
    });
 
 }

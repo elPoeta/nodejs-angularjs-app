@@ -1,9 +1,9 @@
-<a href="/movieteca/movie/{{movie.getMovie}}/edit">Edit Movie</a>
-<h3>{{movie.getMovie.title}}</h3>
-<img data-ng-src="{{movie.getMovie.poster}}" alt="not image">
-<p>{{movie.getMovie.year}}</p>
-<p>{{movie.getMovie.genrename}}</p>
-<p>{{movie.getMovie.directorname}}</p>
+<a >Edit Movie</a>
+<h3>{{movie.title}}</h3>
+<img data-ng-src="{{movie.poster}}" alt="not image">
+<p>{{movie.year}}</p>
+<p>{{movie.genrename}}</p>
+<p><a data-ui-sref="oneDirector({id: movie.directorid})">{{movie.directorname}}</a></p>
 <textarea name="" id="" cols="50" rows="10">
-    {{movie.getMovie.description}}
+    {{movie.description}}
 </textarea>
