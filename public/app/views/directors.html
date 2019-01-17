@@ -1,7 +1,7 @@
 <h2>{{title}}</h2>
 
 <ul>
-    <li data-ng-repeat="director in directors.getDirectors">
+    <li data-ng-repeat="director in directors">
         <p><a href="/movieteca/director/{{director.id}}">{{director.name}}</a></p>
        <!-- <img data-ng-src="{{director.photo}}">  -->
        <div class="photo-circle" data-back-img="{{director.photo}}"></div>

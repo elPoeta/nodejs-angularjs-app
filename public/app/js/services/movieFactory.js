@@ -1,38 +1,11 @@
 const app = require('../app');
 
-function MovieFactory($http){
+function MovieFactory($http, $q){
     const urlBase = 'api/movie';
-    movieFactory = {};
-
-    movieFactory.getMovies = function () {
-        return $http.get(urlBase);
-    };
-
-    movieFactory.getMovie = function (id) {
-        return $http.get(`${urlBase}/${id}`);
-    };
-
-
-    return movieFactory;
-}
-
-app.factory('MovieFactory', ['$http', MovieFactory]);
-
-module.exports = app;
-
-
-/*
-function MovieService($resource){
-    return  $resource('api/movie');
-}
-app.factory('MovieService', ['$resource', MovieService]);
-module.exports = app;
-
-function MovieService($http, $q){
     return {
          
         fetchAllMovies: function() {
-                return $http.get('api/movie')
+                return $http.get(urlBase)
                         .then(
                                 function(response){
                                     return response.data.movies;
@@ -42,9 +15,22 @@ function MovieService($http, $q){
                                     return $q.reject(errResponse);
                                 }
                         );
-        }
+        },
+        fetchOneMovie: function(id) {
+            return $http.get(`${urlBase}/${id}`)
+                    .then(
+                            function(response){
+                                return response.data.movie;
+                            }, 
+                            function(errResponse){
+                                console.error('Error while fetching Movie');
+                                return $q.reject(errResponse);
+                            }
+                    );
+    }
 };
 
 }
-app.factory('MovieService', ['$http', '$q', MovieService]);
-*/ 
+app.factory('MovieFactory', ['$http', '$q', MovieFactory]);
+
+module.exports = app; 

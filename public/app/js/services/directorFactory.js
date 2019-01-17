@@ -1,40 +1,11 @@
 const app = require('../app');
 
-function DirectorFactory($http){
+function DirectorFactory($http, $q){
     const urlBase = 'api/director';
-    directorFactory = {};
-
-    directorFactory.getDirectors = function () {
-        return $http.get(urlBase);
-    };
-
-    directorFactory.getDirector = function (id) {
-        return $http.get(`${urlBase}/${id}`);
-    };
-
-    return directorFactory;
-}
-
-app.factory('DirectorFactory', ['$http', DirectorFactory]);
-
-module.exports = app; 
-
-
-/*
-function DirectorService($resource){
-    return $resource('api/director');
-}
-
-app.factory('DirectorService', ['$resource', DirectorService]);
-
-module.exports = app; 
-
-
-function DirectorService($http, $q){
     return {
          
         fetchAllDirectors: function() {
-                return $http.get('api/director')
+                return $http.get(urlBase)
                         .then(
                                 function(response){
                                     return response.data.directors;
@@ -44,10 +15,22 @@ function DirectorService($http, $q){
                                     return $q.reject(errResponse);
                                 }
                         );
-        }
+        },
+        fetchOneDirector: function(id) {
+            return $http.get(`${urlBase}/${id}`)
+                    .then(
+                            function(response){
+                                return response.data.director;
+                            }, 
+                            function(errResponse){
+                                console.error('Error while fetching Director');
+                                return $q.reject(errResponse);
+                            }
+                    );
+    }
 };
 
 }
-app.factory('DirectorService', ['$http', '$q', DirectorService]);
-*/
+app.factory('DirectorFactory', ['$http', '$q', DirectorFactory]);
 
+module.exports = app; 
