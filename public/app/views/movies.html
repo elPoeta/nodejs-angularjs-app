@@ -1,8 +1,8 @@
 <h2>{{title}}</h2>
-<ul class="movie-fade">
+<ul class="movie-fade movie-list">
     <li data-ng-repeat="movie in movies">
-        <h3><a data-ui-sref="oneMovie({id: movie.id})">{{movie.title}}</a></h3>
         <img data-ng-src="{{movie.poster}}" alt="not image">
+        <h3><a data-ui-sref="oneMovie({id: movie.id})">{{movie.title}}</a></h3>
         <p>{{movie.year}}</p>
         <p>{{movie.genrename}}</p>
     </li>

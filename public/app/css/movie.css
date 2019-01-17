@@ -1,0 +1,31 @@
+.movie-list{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.movie-list li{
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 1fr;
+    list-style: none;
+    padding: 10px;
+}
+
+.movie-list li a {
+    text-decoration: none;
+    color: rebeccapurple;
+    font-size: 1.7em;
+}
+
+.movie-list li a:hover {
+    cursor: pointer;
+    color: plum;
+}
+
+.movie-list img{
+    height: 150px;
+    width: auto;
+}
